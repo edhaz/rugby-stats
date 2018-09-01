@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+
+</head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<body>
+    <h1>UK Rugby Union Premiership Table</h1>
+    <table>
+        <tr>
+        {% for i in data[0] %}
+            <th>
+                {{ i }}
+            </th>
+        {% endfor %}
+        </tr>
+        {% for j in data[1:] %}
+            <tr>
+                {% for k in j %}
+                <td>
+                    {{ k }}
+                </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
