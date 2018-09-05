@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 import requests
 from bs4 import BeautifulSoup
 import json_creator
@@ -5,8 +7,11 @@ import json_creator
 
 def get_soup():
     r = requests.get('https://www.bbc.co.uk/sport/rugby-union/tables')
-    soup = BeautifulSoup(r.text, 'html.parser')
-    return soup
+    if not r:
+        raise Exception("Website not working")
+    else:
+        soup = BeautifulSoup(r.text, 'html.parser')
+        return soup
 
 
 def get_data(soup):

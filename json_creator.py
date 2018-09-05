@@ -2,6 +2,7 @@
 
 import json
 import csv
+import datetime
 
 
 # read CSV file
@@ -17,14 +18,17 @@ def read_csv(file, json_file, format):
 
 # convert csv data into json and write it
 def write_json(data, json_file, format):
-    with open(json_file, "w") as f:
+    with open(json_file, "w+") as file:
         if format == "pretty":
-            f.write(json.dumps(data, sort_keys=False, indent=4, separators=(', ', ': '), ensure_ascii=False))
+            file.write(json.dumps(data, sort_keys=False, indent=4, separators=(', ', ': '), ensure_ascii=False))
         else:
-            f.write(json.dumps(data))
+            file.write(json.dumps(data))
 
 
 def run():
     file = 'tables.csv'
     json_file = 'rugby_table.json'
-    read_csv(file, json_file, "pretty")
+    dated_json = 'data_archive/rugby_table_{}.json'.format(datetime.date.today())
+    read_csv(file, json_file, 'pretty')
+    read_csv(file, dated_json, 'pretty')
+
