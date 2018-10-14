@@ -23,13 +23,15 @@ def get_data(soup):
     counter = 0
     for n in range(len(table) // 12):
         x = table[counter:counter + 11:]
+        if x[1] == "N'hampton":
+            x[1] = "Northampton"
         counter += 11
         master.append(x)
     return master
 
 
 def update_database(master):
-    with open('tables.csv', 'w') as fout:
+    with open('/Users/ed/Projects/personal-website/static/tables.csv', 'w') as fout:
         fout.write("Place,Team,Played,Won,Drawn,Lost,For,Against,Difference,Bonus,Points\n")
         for i in master:
             fout.write(",".join(i) + '\n')

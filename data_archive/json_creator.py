@@ -27,8 +27,8 @@ def write_json(data, json_file, format):
 
 def run():
     file = 'tables.csv'
-    json_file = 'rugby_table.json'
-    dated_json = 'data_archive/rugby_table_{}.json'.format(datetime.date.today())
+    json_file = '/Users/ed/Projects/personal-website/static/rugby_table.json'
+    dated_json = 'rugby_table_{}.json'.format(datetime.date.today())
     read_csv(file, json_file, 'pretty')
     read_csv(file, dated_json, 'pretty')
 

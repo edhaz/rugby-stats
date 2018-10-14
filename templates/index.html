@@ -6,7 +6,7 @@
 </head>
 <style>
 table {
-    font-family: arial, sans-serif;
+    font-family: verdana, sans-serif;
     border-collapse: collapse;
     width: 50%;
 }
@@ -22,11 +22,11 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-    <h1>UK Rugby Union Premiership Table</h1>
+    <h1 style="font-family: verdana">UK Rugby Union Premiership Table</h1>
     <table>
         <tr>
         {% for i in data[0] %}
-            <th>
+            <th style="color:slategrey">
                 {{ i }}
             </th>
         {% endfor %}
