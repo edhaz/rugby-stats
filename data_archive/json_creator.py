@@ -1,9 +1,10 @@
 # adapted from: https://www.idiotinside.com/2015/09/18/csv-json-pretty-print-python/
-
+import os
 import json
 import csv
 import datetime
 
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 # read CSV file
 def read_csv(file, json_file, format):
@@ -26,9 +27,9 @@ def write_json(data, json_file, format):
 
 
 def run():
-    file = 'tables.csv'
-    json_file = '/Users/ed/Projects/personal-website/static/rugby_table.json'
-    dated_json = 'rugby_table_{}.json'.format(datetime.date.today())
+    file = SITE_ROOT + '/tables.csv'
+    json_file = SITE_ROOT + '/rugby_table.json'
+    dated_json = SITE_ROOT + '/rugby_table_{}.json'.format(datetime.date.today())
     read_csv(file, json_file, 'pretty')
     read_csv(file, dated_json, 'pretty')
 

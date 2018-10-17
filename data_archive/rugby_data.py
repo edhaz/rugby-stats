@@ -1,8 +1,10 @@
 #! /usr/bin/python3
-
+import os
 import requests
 from bs4 import BeautifulSoup
 import json_creator
+
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 
 def get_soup():
@@ -31,7 +33,7 @@ def get_data(soup):
 
 
 def update_database(master):
-    with open('/Users/ed/Projects/personal-website/static/tables.csv', 'w') as fout:
+    with open(SITE_ROOT + '/tables.csv', 'w') as fout:
         fout.write("Place,Team,Played,Won,Drawn,Lost,For,Against,Difference,Bonus,Points\n")
         for i in master:
             fout.write(",".join(i) + '\n')
