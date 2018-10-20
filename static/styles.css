@@ -1,0 +1,34 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
+.boxEd {
+    transition: box-shadow .3s;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #fff;
+    float: left;
+}
+
+.boxEd:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.blue-bg {
+    background-color: #000080;
+}
+
+a {
+    color: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+    .container-fluid
+    {
+      text-align: center;
+    }
+  }
