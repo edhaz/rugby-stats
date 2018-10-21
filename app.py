@@ -11,8 +11,10 @@ api_data = json.load(open(json_url))
 table_data = []
 with open(SITE_ROOT + '/data_archive/tables.csv', 'r') as fin:
     for i in fin:
-        tmp = i[:-2].split(",")
-        table_data.append(tmp[:-1])
+        print(i)
+        tmp = i[:-1].split(",")
+        print("tmp", tmp)
+        table_data.append(tmp[:])
 
 
 @app.route("/")
