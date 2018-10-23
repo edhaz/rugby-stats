@@ -9,7 +9,7 @@ SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 json_url = os.path.join(SITE_ROOT, "data_archive", "rugby_table.json")
 api_data = json.load(open(json_url))
 table_data = []
-with open('data_archive/tables.csv', 'r') as fin:
+with open(SITE_ROOT + '/data_archive/tables.csv', 'r') as fin:
     for i in fin:
         tmp = i[:-1].split(",")
         table_data.append(tmp[:])
