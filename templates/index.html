@@ -1,27 +1,8 @@
 {% extends "layout.html" %}
 {% block title %}Rugby Table{% endblock %}
-{% block style %}
-<style>
-table {
-    font-family: verdana, sans-serif;
-    border-collapse: collapse;
-    width: 50%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
-{% endblock %}
 {% block body %}
 <div style="margin-left:30px">
-    <h1 style="font-family: verdana">UK Rugby Union Premiership Table</h1>
+    <h1>UK Rugby Union Premiership Table</h1>
     <table>
         <tr>
         {% for i in data[0] %}
