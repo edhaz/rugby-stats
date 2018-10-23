@@ -11,9 +11,7 @@ api_data = json.load(open(json_url))
 table_data = []
 with open('data_archive/tables.csv', 'r') as fin:
     for i in fin:
-        print(i)
         tmp = i[:-1].split(",")
-        print("tmp", tmp)
         table_data.append(tmp[:])
 
 
