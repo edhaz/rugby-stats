@@ -2,3 +2,5 @@ venv_rugby
 __pycache__
 .idea
 .DS_Store
+.vscode
+data_archive/rugby_table_*

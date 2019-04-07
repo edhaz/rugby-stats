@@ -21,10 +21,13 @@ def rugby():
     return render_template("index.html", data=table_data)
 
 
-@app.route("/api/v1/table/all")
+@app.route("/api/table/all")
 def table_api():
     return jsonify(api_data)
 
+@app.route("/api/team/{team}")
+def team_api():
+    return jsonify(api_data[team])
 
 if __name__ == "__main__":
     app.run()

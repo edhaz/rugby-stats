@@ -1,4 +1,5 @@
 #! /usr/bin/python3
+
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -23,7 +24,8 @@ def get_data(soup):
         table.append(i.string)
     master = []
     counter = 0
-    for n in range(len(table) // 12):
+    for n in range(len(table) // 11):
+        print(n)
         x = table[counter:counter + 11:]
         if x[1] == "N'hampton":
             x[1] = "Northampton"
