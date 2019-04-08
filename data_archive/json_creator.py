@@ -12,6 +12,7 @@ def read_csv(file, json_file, format):
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)
         title = reader.fieldnames
+        title.remove('Logo')
         for row in reader:
             csv_rows.extend([{title[i]:row[title[i]] for i in range(len(title))}])
         write_json(csv_rows, json_file, format)
@@ -32,4 +33,3 @@ def run():
     dated_json = SITE_ROOT + '/rugby_table_{}.json'.format(datetime.date.today())
     read_csv(file, json_file, 'pretty')
     read_csv(file, dated_json, 'pretty')
-
