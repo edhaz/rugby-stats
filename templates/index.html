@@ -6,7 +6,7 @@
     <table>
         <tr>
         {% for i in data[0] %}
-            <th style="color:slategrey">
+            <th style="color:slategrey; text-align: center">
                 {{ i }}
             </th>
         {% endfor %}
@@ -14,18 +14,18 @@
         {% for j in data[1:] %}
             <tr>
                 {% for k in j %}
-                <td>
-                    {{ k }}
-                </td>
+                    {% if k == 'i' %}
+                        <td><img class="img-responsive" width=40 src="https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/{{ logos[j[2].lower()] }}" alt="{{ team }}" /></td>
+                    {% else %}
+                        <td style="text-align:center">
+                            {{ k }}
+                        </td>
+                    {% endif %}
                 {% endfor %}
             </tr>
         {% endfor %}
     </table>
     <br>
-    {% for team in logos %}
-        <img class="img-responsive" width=60 src="https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/{{ logos[team] }}" alt="{{ team }}" />
-    {% endfor %}
-    <br><br>
     <p><strong>API endpoint found here: </strong><a href="https://rugby.edhazledine.com/api/v1/table/all">https://rugby.edhazledine.com/api/v1/table/all</a></p>
 </div>
 {% endblock %}
