@@ -1,12 +1,12 @@
-Place,Team,Played,Won,Drawn,Lost,For,Against,Difference,Bonus,Points
+Place,Logo,Team,Played,Won,Drawn,Lost,For,Against,Difference,Bonus,Points
 1,Exeter,18,15,0,3,547,338,209,16,76
 2,Saracens,18,14,0,4,525,365,160,11,67
-3,Gloucester,17,10,1,6,431,369,62,8,50
+3,Gloucester,18,11,1,6,471,400,71,9,55
 4,Harlequins,18,9,0,9,462,445,17,13,49
 5,Sale,18,9,1,8,373,401,-28,6,44
 6,Bath,18,8,2,8,394,399,-5,8,44
-7,Wasps,18,8,0,10,399,448,-49,10,42
-8,Northampton,17,8,0,9,449,395,54,9,41
+7,Northampton,18,8,0,10,480,435,45,10,42
+8,Wasps,18,8,0,10,399,448,-49,10,42
 9,Bristol,18,6,0,12,418,507,-89,13,37
 10,Leicester,18,6,0,12,381,532,-151,10,34
 11,Worcester,18,6,0,12,384,453,-69,8,32

@@ -1,12 +1,11 @@
 #! /usr/bin/python3
-
 import os
 import requests
 from bs4 import BeautifulSoup
 import json_creator
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-
+URL_PREFIX = 'https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/'
 
 def get_soup():
     r = requests.get('https://www.bbc.co.uk/sport/rugby-union/tables')
@@ -25,7 +24,6 @@ def get_data(soup):
     master = []
     counter = 0
     for n in range(len(table) // 11):
-        print(n)
         x = table[counter:counter + 11:]
         if x[1] == "N'hampton":
             x[1] = "Northampton"
@@ -36,7 +34,7 @@ def get_data(soup):
 
 def update_database(master):
     with open(SITE_ROOT + '/tables.csv', 'w') as fout:
-        fout.write("Place,Team,Played,Won,Drawn,Lost,For,Against,Difference,Bonus,Points\n")
+        fout.write("Place,Logo,Team,Played,Won,Drawn,Lost,For,Against,Difference,Bonus,Points\n")
         for i in master:
             fout.write(",".join(i) + '\n')
 

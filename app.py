@@ -1,6 +1,9 @@
+#! /usr/bin/python3
+
 from flask import Flask, render_template, jsonify
 import json
 import os
+import logos_urls
 
 app = Flask(__name__)
 
@@ -18,7 +21,8 @@ with open(SITE_ROOT + '/data_archive/tables.csv', 'r') as fin:
 @app.route("/")
 def rugby():
     """Shows table of rugby union premiership"""
-    return render_template("index.html", data=table_data)
+    logos = logos_urls.team_logos
+    return render_template("index.html", data=table_data, logos=logos)
 
 
 @app.route("/api/table/all")

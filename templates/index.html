@@ -22,6 +22,10 @@
         {% endfor %}
     </table>
     <br>
+    {% for team in logos %}
+        <img class="img-responsive" width=60 src="https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/{{ logos[team] }}" alt="{{ team }}" />
+    {% endfor %}
+    <br><br>
     <p><strong>API endpoint found here: </strong><a href="https://rugby.edhazledine.com/api/v1/table/all">https://rugby.edhazledine.com/api/v1/table/all</a></p>
 </div>
 {% endblock %}
