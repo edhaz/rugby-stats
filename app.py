@@ -33,9 +33,16 @@ def rugby():
 def table_api():
     return jsonify(api_data)
 
-@app.route("/api/team/{team}")
-def team_api():
-    return jsonify(api_data[team])
+
+@app.route("/api/team/<team>")
+def team_api(team):
+    team = team.capitalize()
+    for item in api_data:
+        if item['Team'] == team:
+            return jsonify(item)
+        else:
+            return 'No such team in the premiership!'
+
 
 if __name__ == "__main__":
     app.run()
