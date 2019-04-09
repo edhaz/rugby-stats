@@ -2,7 +2,7 @@
 {% block title %}Rugby Table{% endblock %}
 {% block body %}
 <div style="margin-left:30px">
-    <h1>UK Rugby Union Premiership Table</h1>
+    <h1>Gallagher Premiership Rugby Table</h1>
     <table>
         <tr>
         {% for i in data[0] %}
@@ -26,8 +26,14 @@
         {% endfor %}
     </table>
     <br>
-    <p><strong>API endpoint found here: </strong><a href="https://rugby.edhazledine.com/api/table/all">https://rugby.edhazledine.com/api/table/all</a></p>
+    <h3>API</h3>
+    <p><strong>Full table data: </strong><a href="https://rugby.edhazledine.com/api/table/all">https://rugby.edhazledine.com/api/table/all</a></p>
+    <p><strong>Specific team data: </strong><a href="https://rugby.edhazledine.com/api/team/">https://rugby.edhazledine.com/api/team/{team_name}</a></p>
+    <list>
+    <li>Please email <strong><a href="mailto:ed.hazledine@gmail.com">ed.hazledine@gmail.com</a></strong> if there is a specific data set you want.</li>
+    </list>
     <hr>
+    <h3>Graphs</h3>
     <div class="points">
         <img src="/static/graphs/points.png" class="img-responsive" width=800 />
     </div>

@@ -40,8 +40,7 @@ def team_api(team):
     for item in api_data:
         if item['Team'] == team:
             return jsonify(item)
-        else:
-            return 'No such team in the premiership!'
+    return 'No such team in the premiership!'
 
 
 if __name__ == "__main__":
