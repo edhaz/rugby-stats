@@ -3,7 +3,7 @@ import re
 import datetime
 from dateutil import parser
 
-PATH = './data_archive/'
+PATH = 'data_archive/'
 FILE_NAMES = sorted([item for item in os.listdir(PATH)])
 
 def update_time_getter():
