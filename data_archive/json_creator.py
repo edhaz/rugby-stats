@@ -30,6 +30,7 @@ def write_json(data, json_file, format):
 def run():
     file = SITE_ROOT + '/tables.csv'
     json_file = SITE_ROOT + '/rugby_table.json'
-    dated_json = SITE_ROOT + '/rugby_table_{}.json'.format(datetime.date.today())
+    DATE = datetime.date.today()
+    dated_json = SITE_ROOT + '/rugby_table_{}.json'.format(DATE)
     read_csv(file, json_file, 'pretty')
     read_csv(file, dated_json, 'pretty')
