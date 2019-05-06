@@ -1,6 +1,11 @@
-venv_rugby
+.idea
+.DS_Store
+venv_*
 __pycache__
 .idea
 .DS_Store
 .vscode
 data_archive/rugby_table_*
+config.py
+config.pyc
+

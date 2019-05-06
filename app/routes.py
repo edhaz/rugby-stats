@@ -1,14 +1,10 @@
-#! /usr/bin/python3
-
-from flask import Flask, render_template, jsonify
-from flask_moment import Moment
 import json
 import os
 import logos_urls
+from flask import render_template, jsonify
+from sqlalchemy import create_engine
 from update_time_getter import update_time_getter
-
-app = Flask(__name__)
-moment = Moment(app)
+from app import app, db
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
@@ -24,6 +20,7 @@ with open(SITE_ROOT + '/data_archive/tables.csv', 'r') as fin:
 # Leave room for images in the table data
 for item in table_data[1:]:
     item.insert(1, 'i')
+
 
 @app.route("/")
 def rugby():
