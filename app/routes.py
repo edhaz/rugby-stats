@@ -2,9 +2,8 @@ import json
 import os
 import logos_urls
 from flask import render_template, jsonify
-from sqlalchemy import create_engine
-from update_time_getter import update_time_getter
-from app import app, db
+from app.update_time_getter import update_time_getter
+from app import app
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
