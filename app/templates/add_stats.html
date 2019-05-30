@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Rugby Table{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+{% block body %}
+<div style="margin-left: 30px;">
+    <h1>Add stats below.</h1>
+
+    <form action="{{ url_for('add_stats') }}" method="post">
+        <input type="text" name="place" placeholder="place"><br>
+        <input type="text" name="team_id" placeholder="team_id"><br>
+        <input type="text" name="round_number" placeholder="round_number"><br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
+

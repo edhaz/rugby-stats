@@ -12,7 +12,7 @@ class Teams(db.Model):
 
 class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    round = db.Column(db.Integer, nullable=False)
+    round_number = db.Column(db.Integer, nullable=False)
     place = db.Column(db.Integer, nullable=False)
     # won = db.Column(db.Integer, nullable=False)
     # drawn = db.Column(db.Integer, nullable=False)

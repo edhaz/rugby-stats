@@ -1,9 +1,9 @@
 import json
 import os
 import logos_urls
-from flask import render_template, jsonify
+from flask import render_template, jsonify, request, flash
 from app.update_time_getter import update_time_getter
-from app import app
+from app import app, data_controller
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
@@ -41,6 +41,22 @@ def team_api(team):
         if item['Team'] == team:
             return jsonify(item)
     return 'No such team in the premiership!'
+
+
+# @app.route("/admin/add/<team>")
+# def add(team):
+#     return data_controller.add_team(team)
+
+
+@app.route("/admin/add/stats", methods=['GET', 'POST'])
+def add_stats():
+    if request.method == 'POST':
+        place = request.form['place']
+        flash('Data added: {}'.format(place))
+        return render_template("add_stats.html")
+    else:
+        return render_template("add_stats.html")
+
 
 
 if __name__ == "__main__":
