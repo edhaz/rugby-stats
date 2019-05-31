@@ -52,7 +52,10 @@ def team_api(team):
 def add_stats():
     if request.method == 'POST':
         place = request.form['place']
-        flash('Data added: {}'.format(place))
+        round_number = request.form['round_number']
+        team_id = request.form['team_id']
+        data_controller.add_stats(round_number, place, team_id)
+        flash('Data added!' + place + round_number + team_id)
         return render_template("add_stats.html")
     else:
         return render_template("add_stats.html")

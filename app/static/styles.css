@@ -31,3 +31,7 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.flashes {
+    color: green;
+}
