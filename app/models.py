@@ -1,23 +1,23 @@
 from app import db
 
 
-class User(db.Model):
+class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    name = db.Column(db.String(64), index=True, unique=True)
+    stats = db.relationship('Stats', backref='team_name', lazy='dynamic')
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<Team {}>'.format(self.name)
 
 
-class Post(db.Model):
+class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     round_no = db.Column(db.Integer)
     place = db.Column(db.Integer, index=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('team.id'))
 
     def __repr__(self):
-        return '<Post {} for author: {}>'.format(self.round_no, self.user_id)
+        return '<Place: {} for team: {}>'.format(self.round_no, self.team_name.name)
 
 
 # class Team(db.Model):
