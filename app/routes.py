@@ -43,9 +43,9 @@ def team_api(team):
     return 'No such team in the premiership!'
 
 
-# @app.route("/admin/add/<team>")
-# def add(team):
-#     return data_controller.add_team(team)
+@app.route("/admin/add/<team>")
+def add(team):
+    return data_controller.add_team(team)
 
 
 @app.route("/admin/add/stats", methods=['GET', 'POST'])

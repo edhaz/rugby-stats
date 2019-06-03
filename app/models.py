@@ -1,4 +1,5 @@
 from app import db
+import datetime
 
 
 class Team(db.Model):
@@ -12,13 +13,22 @@ class Team(db.Model):
 
 class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    round_no = db.Column(db.Integer)
-    place = db.Column(db.Integer, index=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('team.id'))
+    place = db.Column(db.Integer, index=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False)
+    round_no = db.relationship('Round', backref='round_number', lazy='dynamic')
 
     def __repr__(self):
-        return '<Place: {} for team: {}>'.format(self.round_no, self.team_name.name)
+        return '<Place: {} for team: {}>'.format(self.place, self.team_name.name)
 
+
+class Round(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    round_no = db.Column(db.Integer, unique=True, nullable=False)
+    date = db.Column(db.Date, default=datetime.date.today(), unique=True, nullable=False)
+    stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'), nullable=False)
+
+    def __repr__(self):
+        return '<Round: {} on {}>'.format(self.round_no, self.date)
 
 # class Team(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
