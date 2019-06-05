@@ -15,7 +15,7 @@ class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     place = db.Column(db.Integer, index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False)
-    round_no = db.relationship('Round', backref='round_number', lazy='dynamic')
+    # round_no = db.relationship('Round', backref='round', lazy='dynamic')
 
     def __repr__(self):
         return '<Place: {} for team: {}>'.format(self.place, self.team_name.name)
@@ -24,9 +24,9 @@ class Stats(db.Model):
 class Round(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     round_no = db.Column(db.Integer, unique=True, nullable=False)
-    date = db.Column(db.Date, default=datetime.date.today(), unique=True, nullable=False)
-    stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'), nullable=False)
-
+    date = db.Column(db.DateTime, index=True, default=datetime.date.today)
+#     stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'), nullable=False)
+#
     def __repr__(self):
         return '<Round: {} on {}>'.format(self.round_no, self.date)
 
