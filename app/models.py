@@ -1,5 +1,5 @@
 from app import db
-import datetime
+from datetime import datetime
 
 
 class Team(db.Model):
@@ -23,8 +23,8 @@ class Stats(db.Model):
 
 class Round(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    round_no = db.Column(db.Integer, unique=True, nullable=False)
-    date = db.Column(db.DateTime, index=True, default=datetime.date.today)
+    round_no = db.Column(db.Integer, nullable=False)
+    date = db.Column(db.DateTime, index=True, unique=True, default=datetime.utcnow().strftime("%Y-%m-%d"))
 #     stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'), nullable=False)
 #
     def __repr__(self):
