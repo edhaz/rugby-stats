@@ -1,5 +1,4 @@
 from app import db
-from datetime import datetime
 
 
 class Team(db.Model):
@@ -11,42 +10,24 @@ class Team(db.Model):
         return '<Team {}>'.format(self.name)
 
 
+class Round(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    round_no = db.Column(db.Integer, nullable=False, unique=True)
+    stats = db.relationship('Stats', backref='round', lazy='dynamic')
+
+    def __repr__(self):
+        return '<Round: {}>'.format(self.round_no)
+
+
 class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     place = db.Column(db.Integer, index=True, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False)
-    # round_no = db.relationship('Round', backref='round', lazy='dynamic')
+    team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False)
+    round_id = db.Column(db.Integer, db.ForeignKey('round.id'), nullable=False)
 
     def __repr__(self):
         return '<Place: {} for team: {}>'.format(self.place, self.team_name.name)
 
-
-class Round(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    round_no = db.Column(db.Integer, nullable=False)
-    date = db.Column(db.DateTime, index=True, unique=True, default=datetime.utcnow().strftime("%Y-%m-%d"))
-    # stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'), nullable=False)
-
-    def __repr__(self):
-        return '<Round: {} on {}>'.format(self.round_no, self.date)
-
-# class Team(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     team_name = db.Column(db.String(64), index=True, unique= True)
-#     stats = db.relationship('Stat', backref='team', lazy='dynamic')
-#
-#     def __repr__(self):
-#         return '<Team: {}>'.format(self.team_name)
-#
-#
-# class Stat(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     round_number = db.Column(db.Integer, nullable=False)
-#     place = db.Column(db.Integer, nullable=False)
-#     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-#
-#     def __repr__(self):
-#         return '<Position {} for team_id: {}>'.format(self.place, self.team_id)
 
 
 
