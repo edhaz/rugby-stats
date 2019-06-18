@@ -9,3 +9,4 @@ class Config(object):
         "postgresql://localhost/rugby"
         # 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+

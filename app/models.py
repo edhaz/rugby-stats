@@ -25,8 +25,8 @@ class Round(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     round_no = db.Column(db.Integer, nullable=False)
     date = db.Column(db.DateTime, index=True, unique=True, default=datetime.utcnow().strftime("%Y-%m-%d"))
-#     stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'), nullable=False)
-#
+    # stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'), nullable=False)
+
     def __repr__(self):
         return '<Round: {} on {}>'.format(self.round_no, self.date)
 

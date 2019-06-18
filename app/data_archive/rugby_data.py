@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 import json_creator
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-URL_PREFIX = 'https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/'
 
 def get_soup():
     r = requests.get('https://www.bbc.co.uk/sport/rugby-union/tables')
