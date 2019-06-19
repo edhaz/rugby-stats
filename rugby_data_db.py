@@ -44,28 +44,37 @@ def add_all_teams(data):
 
 def add_team_data(data):
     s = Session()
-    r = data[0]['Played']
-    r_id = s.query(Round).filter_by(round_no=r).first()
-    teams = s.query(Team).all()
+
+    r_id = s.query(Round).filter_by(round_no=data[0]['Played']).first()
     rounds = s.query(Stats.round_id).filter_by(round_id=r_id.id).count()
     if rounds == 12:
         print("DATA ALREADY PRESENT")
         return
-    for team in teams:
-        for item in data:
-            print(item)
-            r = s.query(Round).filter_by(round_no=item['Played']).first()
-            if item['Team'].lower() == team.name:
-                add_this = Stats(place=item['Place'], team_name=team, round=r)
-                s.add(add_this)
-                s.commit()
-                print("Added")
-            else:
-                continue
+
+    for item in data:
+        t = s.query(Team).filter_by(name=item['Team'].lower()).first()
+        r = s.query(Round).filter_by(round_no=item['Played']).first()
+        add_this = Stats(
+            team_name=t,
+            round=r,
+            place_=int(item['Place']),
+            won_=int(item['Won']),
+            drawn_=int(item['Drawn']),
+            lost_=int(item['Lost']),
+            for_=int(item['For']),
+            against_=int(item['Against']),
+            difference_=int(item['Difference']),
+            bonus_=int(item['Bonus']),
+            points_=int(item['Points'])
+        )
+        print(add_this)
+        s.add(add_this)
+        s.commit()
+        print("Added")
     s.close()
 
 
-# add_rounds()
-# add_all_teams(json_data)
+add_rounds()
+add_all_teams(json_data)
 add_team_data(json_data)
 

@@ -12,7 +12,7 @@ class Team(db.Model):
 
 class Round(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    round_no = db.Column(db.Integer, nullable=False, unique=True)
+    round_no = db.Column(db.Integer, index=True, nullable=False, unique=True)
     stats = db.relationship('Stats', backref='round', lazy='dynamic')
 
     def __repr__(self):
@@ -21,23 +21,23 @@ class Round(db.Model):
 
 class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    place = db.Column(db.Integer, index=True, nullable=False)
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False)
     round_id = db.Column(db.Integer, db.ForeignKey('round.id'), nullable=False)
+    place_ = db.Column(db.Integer, index=True, nullable=False)
+    won_ = db.Column(db.Integer, nullable=False)
+    drawn_ = db.Column(db.Integer, nullable=False)
+    lost_ = db.Column(db.Integer, nullable=False)
+    for_ = db.Column(db.Integer, nullable=False)
+    against_ = db.Column(db.Integer, nullable=False)
+    difference_ = db.Column(db.Integer, nullable=False)
+    bonus_ = db.Column(db.Integer, nullable=False)
+    points_ = db.Column(db.Integer, index=True, nullable=False)
 
     def __repr__(self):
-        return '<Place: {} for team: {}>'.format(self.place, self.team_name.name)
+        return '<Place: {} for team: {}>'.format(self.place_, self.team_name.name)
 
 
 
 
 
-    # won = db.Column(db.Integer, nullable=False)
-    # drawn = db.Column(db.Integer, nullable=False)
-    # lost = db.Column(db.Integer, nullable=False)
-    # points_for = db.Column(db.Integer, nullable=False)
-    # points_against = db.Column(db.Integer, nullable=False)
-    # points_difference = db.Column(db.Integer, nullable=False)
-    # bonus = db.Column(db.Integer, nullable=False)
-    # points = db.Column(db.Integer, nullable=False)
 
