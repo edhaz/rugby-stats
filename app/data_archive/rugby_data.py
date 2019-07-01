@@ -6,6 +6,7 @@ import json_creator
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
+
 def get_soup():
     r = requests.get('https://www.bbc.co.uk/sport/rugby-union/tables')
     if not r:
