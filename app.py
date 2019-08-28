@@ -36,9 +36,17 @@ def rugby():
 @app.route("/2018")
 def rugby_2018():
     """Shows table of rugby union premiership from 2018-19"""
-    updated = update_time_getter()
+    table_data = []
+    with open(SITE_ROOT + '/data_archive/2018-19/tables.csv', 'r') as fin:
+        for i in fin:
+            tmp = i[:-1].split(",")
+            table_data.append(tmp[:])
+    # Leave room for images in the table data
+    for item in table_data[1:]:
+        item.insert(1, 'i')
+    # updated = update_time_getter()
     logos = logos_urls.team_logos
-    return render_template("index2018.html", data=table_data, logos=logos, updated=updated)
+    return render_template("index2018.html", data=table_data, logos=logos, updated="1st Jun 2019")
 
 @app.route("/api/table/all")
 def table_api():
