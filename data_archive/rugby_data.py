@@ -19,9 +19,13 @@ def get_soup():
 
 def check_duplicate_week(master):
     with open(SITE_ROOT + '/tables.csv', 'r') as fout:
-        for item in fout.read():
-            print(item)
-    # if master[0][3] == row['Played']:
+        csv_reader = csv.reader(fout)
+        old_csv = [row for row in csv_reader]
+    # Accesses ['Played'] from each of the lists for the first team.
+    print(master[0][3])
+    print(old_csv[1][3])
+    if master[0][3] == old_csv[1][3]:
+        return True
 
 
 def get_data(soup):
@@ -51,7 +55,9 @@ def main():
     print("Running...")
     soup = get_soup()
     master = get_data(soup)
-    check_duplicate_week(master)
+    if check_duplicate_week(master):
+        print("Duplicate week, quitting.")
+        return False
     update_database(master)
     json_creator.run()
     print("Completed.")
