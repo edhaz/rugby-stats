@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 import os
 import requests
+import csv
 from bs4 import BeautifulSoup
 import json_creator
 
@@ -14,6 +15,13 @@ def get_soup():
     else:
         soup = BeautifulSoup(r.text, 'html.parser')
         return soup
+
+
+def check_duplicate_week(master):
+    with open(SITE_ROOT + '/tables.csv', 'r') as fout:
+        for item in fout.read():
+            print(item)
+    # if master[0][3] == row['Played']:
 
 
 def get_data(soup):
@@ -43,6 +51,7 @@ def main():
     print("Running...")
     soup = get_soup()
     master = get_data(soup)
+    check_duplicate_week(master)
     update_database(master)
     json_creator.run()
     print("Completed.")

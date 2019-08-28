@@ -26,12 +26,19 @@ for item in table_data[1:]:
     item.insert(1, 'i')
 
 @app.route("/")
+@app.route("/2019")
 def rugby():
     """Shows table of rugby union premiership"""
     updated = update_time_getter()
     logos = logos_urls.team_logos
     return render_template("index.html", data=table_data, logos=logos, updated=updated)
 
+@app.route("/2018")
+def rugby_2018():
+    """Shows table of rugby union premiership from 2018-19"""
+    updated = update_time_getter()
+    logos = logos_urls.team_logos
+    return render_template("index2018.html", data=table_data, logos=logos, updated=updated)
 
 @app.route("/api/table/all")
 def table_api():
