@@ -1,11 +1,13 @@
 #! /usr/bin/python3
 import os
 import requests
+import datetime
 import csv
 from bs4 import BeautifulSoup
 import json_creator
 
-SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+now = datetime.datetime.now()
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__)) + '/' + str(now.year)
 URL_PREFIX = 'https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/'
 
 def get_soup():
@@ -22,8 +24,8 @@ def check_duplicate_week(master):
         csv_reader = csv.reader(fout)
         old_csv = [row for row in csv_reader]
     # Accesses ['Played'] from each of the lists for the first team.
-    print(master[0][3])
-    print(old_csv[1][3])
+    print(master[0][2])
+    print(old_csv[1][2])
     if master[0][3] == old_csv[1][3]:
         return True
 
