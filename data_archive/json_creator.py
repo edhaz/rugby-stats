@@ -4,7 +4,8 @@ import json
 import csv
 import datetime
 
-SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+now = datetime.datetime.now()
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__)) + '/' + str(now.year)
 
 # read CSV file
 def read_csv(file, json_file, format):

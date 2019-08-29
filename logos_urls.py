@@ -12,5 +12,6 @@ team_logos = {
     'sale': 'SALE8393.svg',
     'saracens': 'SARA4298.svg',
     'wasps': 'LOND5443.svg',
-    'worcester': 'WORC9240.svg'
+    'worcester': 'WORC9240.svg',
+    'london irish': 'LOND1618.svg'
 }

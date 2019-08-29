@@ -2,7 +2,7 @@
 {% block title %}Rugby Table{% endblock %}
 {% block body %}
 <div style="margin-left:30px">
-    <h1>Gallagher Premiership Rugby Table</h1>
+    <h1>Gallagher Premiership Rugby Table {{ year }}-{{ next_year_short }}</h1>
     <table>
         <tr>
         {% for i in data[0] %}
@@ -27,6 +27,7 @@
     </table>
     <p><em>Updated: {{ moment(updated).format("Do MMM YYYY") }}</em></p>
     <br>
+    <!--
     <h3>API</h3>
     <p><strong>Full table data: </strong><a href="https://rugby.edhazledine.com/api/table/all">https://rugby.edhazledine.com/api/table/all</a></p>
     <p><strong>Specific team data: </strong><a href="https://rugby.edhazledine.com/api/team/">https://rugby.edhazledine.com/api/team/{team_name}</a></p>
@@ -34,14 +35,19 @@
     <li>Please email <strong><a href="mailto:ed.hazledine@gmail.com">ed.hazledine@gmail.com</a></strong> if there is a specific data set you want.</li>
     </list>
     <hr>
+-->
     <h3>Graphs</h3>
-    <div class="points">
-        <img src="/static/graphs/points.png" class="img-responsive" width=800 />
-    </div>
-    <hr>
-    <div class="places">
-        <img src="/static/graphs/places.png" class="img-responsive" width=800 />
-    </div>
+    {% if year == CURRENT_YEAR %}
+        <p>Graphs will be available once the season starts.</p>
+    {% else %}
+        <div class="points">
+            <img src="/static/graphs/points.png" class="img-responsive" width=800 />
+        </div>
+        <hr>
+        <div class="places">
+            <img src="/static/graphs/places.png" class="img-responsive" width=800 />
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
 
