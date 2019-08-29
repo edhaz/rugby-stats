@@ -40,7 +40,8 @@ def rugby_year(year):
                         data=table_data, 
                         logos=logos, 
                         updated=updated,
-                        year=year,
+                        year=int(year),
+                        CURRENT_YEAR=int(CURRENT_YEAR),
                         next_year_short=int(year) - 2000 + 1
                         )
 

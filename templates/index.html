@@ -37,16 +37,17 @@
     <hr>
 -->
     <h3>Graphs</h3>
-    <p>Graphs will be available once the season starts.</p>
-<!--
-    <div class="points">
-        <img src="/static/graphs/points.png" class="img-responsive" width=800 />
-    </div>
-    <hr>
-    <div class="places">
-        <img src="/static/graphs/places.png" class="img-responsive" width=800 />
-    </div>
--->
+    {% if year == CURRENT_YEAR %}
+        <p>Graphs will be available once the season starts.</p>
+    {% else %}
+        <div class="points">
+            <img src="/static/graphs/points.png" class="img-responsive" width=800 />
+        </div>
+        <hr>
+        <div class="places">
+            <img src="/static/graphs/places.png" class="img-responsive" width=800 />
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
 
