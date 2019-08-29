@@ -33,24 +33,29 @@ def rugby():
     logos = logos_urls.team_logos
     return render_template("index.html", data=table_data, logos=logos, updated=updated)
 
-@app.route("/2018")
-def rugby_2018():
-    """Shows table of rugby union premiership from 2018-19"""
+@app.route("/<year>")
+def rugby_year(year):
+    """Shows table of rugby union premiership from given year"""
     table_data = []
-    with open(SITE_ROOT + '/data_archive/2018-19/tables.csv', 'r') as fin:
+    with open(SITE_ROOT + '/data_archive/' + year + '/tables.csv', 'r') as fin:
         for i in fin:
             tmp = i[:-1].split(",")
             table_data.append(tmp[:])
     # Leave room for images in the table data
     for item in table_data[1:]:
         item.insert(1, 'i')
-    # updated = update_time_getter()
+    updated = update_time_getter(year)
     logos = logos_urls.team_logos
     return render_template("index2018.html", data=table_data, logos=logos, updated="1st Jun 2019")
 
-@app.route("/api/table/all")
-def table_api():
-    return jsonify(api_data)
+@app.route('/api/<year>/table/all')
+def table_api(year):
+    json_url = os.path.join(SITE_ROOT, "data_archive", year, "rugby_table.json")
+    try:
+        api_data = json.load(open(json_url))
+        return jsonify(api_data)
+    except:
+        return "Error, no data."
 
 
 @app.route("/api/team/<team>")
