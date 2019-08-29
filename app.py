@@ -36,7 +36,13 @@ def rugby_year(year):
         item.insert(1, 'i')
     updated = update_time_getter(year)
     logos = logos_urls.team_logos
-    return render_template("index.html", data=table_data, logos=logos, updated=updated)
+    return render_template("index.html", 
+                        data=table_data, 
+                        logos=logos, 
+                        updated=updated,
+                        year=year,
+                        next_year_short=int(year) - 2000 + 1
+                        )
 
 """
 @app.route('/api/<year>/table/all')
