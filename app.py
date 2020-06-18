@@ -12,8 +12,7 @@ app = Flask(__name__)
 moment = Moment(app)
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-now = datetime.datetime.now()
-CURRENT_YEAR = now.year
+CURRENT_YEAR = 2019
 
 
 @app.route("/")
