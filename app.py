@@ -32,7 +32,6 @@ def rugby_year(year):
     for item in table_data[1:]:
         item.insert(1, 'i')
     updated = update_time_getter(year)
-    print("UPDATED:", updated)
     logos = logos_urls.team_logos
     return render_template("index.html", 
                         table_data=table_data, 

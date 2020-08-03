@@ -43,10 +43,8 @@
     </list>
     <hr>
 -->
+    {% if year != CURRENT_YEAR %}
     <h3>Graphs</h3>
-    {% if year == CURRENT_YEAR %}
-    <p>Graphs will be available once the season starts.</p>
-    {% else %}
     <div class="points">
         <img src="/static/graphs/points.png" class="img-responsive" width=800 />
     </div>

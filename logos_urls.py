@@ -7,7 +7,7 @@ team_logos = {
     'gloucester': 'GLOU5573.svg',
     'harlequins': 'HARL5785.svg',
     'leicester tigers': 'LEIC7782.svg',
-    'newcastle': 'NEWC1579.svg',
+    'newcastle falcons': 'NEWC1579.svg',
     'northampton saints': 'NORT3133.svg',
     'sale': 'SALE8393.svg',
     'saracens': 'SARA4298.svg',
