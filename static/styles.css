@@ -31,3 +31,8 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.updated {
+    padding: 10px;
+    font-style: italic;
+}

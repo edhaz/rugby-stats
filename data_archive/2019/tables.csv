@@ -1,13 +1,13 @@
-Place,Logo,Team,Played,Won,Drawn,Lost,For,Against,Difference,Bonus,Points
-1,Bath,0,0,0,0,0,0,0,0,0
-2,Bristol,0,0,0,0,0,0,0,0,0
-3,Exeter,0,0,0,0,0,0,0,0,0
-4,Gloucester,0,0,0,0,0,0,0,0,0
-5,Harlequins,0,0,0,0,0,0,0,0,0
-6,Leicester,0,0,0,0,0,0,0,0,0
-7,London Irish,0,0,0,0,0,0,0,0,0
-8,Northampton,0,0,0,0,0,0,0,0,0
-9,Sale,0,0,0,0,0,0,0,0,0
-10,Saracens,0,0,0,0,0,0,0,0,0
-11,Wasps,0,0,0,0,0,0,0,0,0
-12,Worcester,0,0,0,0,0,0,0,0,0
+Place,Team,Played,Won,Lost,Drawn,For,Against,Difference,Bonus,Points
+1,Exeter Chiefs,13,9,4,0,390,230,160,9,45
+2,Sale,13,8,5,0,334,190,144,8,40
+3,Bristol,13,8,4,1,289,264,25,4,38
+4,Northampton Saints,13,7,6,0,303,311,-8,7,35
+5,Wasps,13,6,7,0,339,328,11,9,33
+6,Bath,13,7,6,0,241,293,-52,2,30
+7,Harlequins,13,5,7,1,285,337,-52,6,28
+8,London Irish,13,5,7,1,255,350,-95,6,28
+9,Gloucester,13,4,9,0,268,282,-14,10,26
+10,Worcester Warriors,13,4,9,0,202,301,-99,6,22
+11,Leicester Tigers,13,4,8,1,207,302,-95,2,20
+12,Saracens,13,9,4,0,338,263,75,6,-63

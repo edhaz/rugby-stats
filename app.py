@@ -1,7 +1,6 @@
 #! /usr/bin/python3
 
 from flask import Flask, render_template, jsonify, url_for, redirect
-from flask_moment import Moment
 import json
 import os
 import datetime
@@ -9,7 +8,6 @@ import logos_urls
 from update_time_getter import update_time_getter
 
 app = Flask(__name__)
-moment = Moment(app)
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 CURRENT_YEAR = 2019
@@ -34,9 +32,10 @@ def rugby_year(year):
     for item in table_data[1:]:
         item.insert(1, 'i')
     updated = update_time_getter(year)
+    print("UPDATED:", updated)
     logos = logos_urls.team_logos
     return render_template("index.html", 
-                        data=table_data, 
+                        table_data=table_data, 
                         logos=logos, 
                         updated=updated,
                         year=int(year),
