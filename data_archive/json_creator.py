@@ -1,11 +1,12 @@
 # adapted from: https://www.idiotinside.com/2015/09/18/csv-json-pretty-print-python/
-import os
 import json
 import csv
 import datetime
 
+from os import path
+
 now = datetime.datetime.now()
-SITE_ROOT = os.path.realpath(os.path.dirname(__file__)) + '/' + str(now.year)
+SITE_ROOT = path.join(path.dirname(__file__), '2019')
 
 # read CSV file
 def read_csv(file, json_file, format):
@@ -13,7 +14,6 @@ def read_csv(file, json_file, format):
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)
         title = reader.fieldnames
-        title.remove('Logo')
         for row in reader:
             csv_rows.extend([{title[i]:row[title[i]] for i in range(len(title))}])
         write_json(csv_rows, json_file, format)
