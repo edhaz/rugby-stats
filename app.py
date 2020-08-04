@@ -20,17 +20,9 @@ def index():
 
 @app.route("/<year>")
 def rugby_year(year):
-    """Shows table of rugby union premiership from given year"""
     if year < str(2018) or year > str(CURRENT_YEAR):
         return "Not found."
-    table_data = []
-    with open(SITE_ROOT + '/data_archive/' + str(year) + '/tables.csv', 'r') as fin:
-        for i in fin:
-            tmp = i[:-1].split(",")
-            table_data.append(tmp[:])
-    # Leave room for images in the table data
-    for item in table_data[1:]:
-        item.insert(1, 'i')
+    table_data = get_table_data(year)
     updated = update_time_getter(year)
     logos = logos_urls.team_logos
     return render_template("index.html", 
@@ -42,10 +34,22 @@ def rugby_year(year):
                         next_year_short=int(year) - 2000 + 1
                         )
 
+
+def get_table_data(year):
+    table_data = []
+    with open(SITE_ROOT + '/data/' + str(year) + '/tables.csv', 'r') as fin:
+        for i in fin:
+            tmp = i[:-1].split(",")
+            table_data.append(tmp[:])
+    for item in table_data[1:]:
+        item.insert(1, 'image')
+    return table_data
+
+
 """
 @app.route('/api/<year>/table/all')
 def table_api(year):
-    json_url = os.path.join(SITE_ROOT, "data_archive", year, "rugby_table.json")
+    json_url = os.path.join(SITE_ROOT, "data", year, "rugby_table.json")
     try:
         api_data = json.load(open(json_url))
         return jsonify(api_data)
