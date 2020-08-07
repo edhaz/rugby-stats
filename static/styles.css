@@ -17,6 +17,7 @@ a {
 table {
     border-collapse: collapse;
     width: 50%;
+    height: 100%;
 }
 
 td, th {
@@ -41,4 +42,18 @@ tr:nth-child(even) {
 
 .footer {
     text-align: center;
+}
+
+.expand-reduce-container {
+    max-width: 16px;
+    font-size: 20px;
+}
+
+.expand-reduce-container a {
+    margin-left: -2px;
+}
+
+.expand-reduce-container:hover {
+    background-color: #eee;
+    cursor: pointer;
 }
