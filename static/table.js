@@ -1,20 +1,28 @@
 const extraColumns = [4, 5, 6, 7, 8, 9, 10, 11]
 hideColumns()
+toggleVisibility('reduce')
 
-function hideColumns(button) {
+function handleColumns() {
+    if (document.getElementById('expand').style.display != 'none') {
+        showColumns()
+    } else {
+        hideColumns()
+    }
+    toggleVisibility('expand')
+    toggleVisibility('reduce')
+}
+
+
+function hideColumns() {
     extraColumns.forEach(function (column) {
         hideColumn(column);
     })
-    document.getElementById('expand').disabled = false;
-    document.getElementById('reduce').disabled = true;
 }
 
-function showColumns(button) {
+function showColumns() {
     extraColumns.forEach(function (column) {
         showColumn(column);
     })
-    document.getElementById('expand').disabled = true;
-    document.getElementById('reduce').disabled = false;
 }
 
 function hideColumn(column) {
@@ -29,4 +37,12 @@ function showColumn(column) {
     document.querySelectorAll(`td:nth-child(${column})`).forEach(function (col) {
         col.style.display = "table-cell"
     });
+}
+
+function toggleVisibility(id) {
+    let e = document.getElementById(id);
+    if (e.style.display != 'none')
+        e.style.display = 'none'
+    else
+        e.style.display = 'initial'
 }

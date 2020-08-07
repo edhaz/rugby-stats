@@ -15,6 +15,14 @@
             </th>
             {% endif %}
             {% endfor %}
+            <th class="expand-reduce-container" onclick="handleColumns()" rowspan=" 13">
+                <a id="expand">
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+                <a id="reduce">
+                    <i class="fas fa-minus-circle"></i>
+                </a>
+            </th>
         </tr>
         {% for row in table_data[1:] %}
         <tr>
@@ -34,8 +42,6 @@
     </table>
 
     <div>
-        <button id="expand" onclick="showColumns(this);">Expand Table</button>
-        <button id="reduce" onclick="hideColumns(this);">Reduce Table</button>
         <p class="updated">Updated: {{ updated }}</p>
     </div>
 
