@@ -3,11 +3,10 @@ hideColumns()
 toggleVisibility('reduce')
 
 function handleColumns() {
-    if (document.getElementById('expand').style.display != 'none') {
+    if (document.getElementById('expand').style.display != 'none')
         showColumns()
-    } else {
+    else
         hideColumns()
-    }
     toggleVisibility('expand')
     toggleVisibility('reduce')
 }
@@ -40,9 +39,9 @@ function showColumn(column) {
 }
 
 function toggleVisibility(id) {
-    let e = document.getElementById(id);
-    if (e.style.display != 'none')
-        e.style.display = 'none'
+    let element = document.getElementById(id);
+    if (element.style.display != 'none')
+        element.style.display = 'none'
     else
-        e.style.display = 'initial'
+        element.style.display = 'initial'
 }
