@@ -41,8 +41,6 @@ def get_table_data(year):
         for i in fin:
             tmp = i[:-1].split(",")
             table_data.append(tmp[:])
-    for item in table_data[1:]:
-        item.insert(1, 'image')
     return table_data
 
 
