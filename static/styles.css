@@ -5,6 +5,11 @@ body {
     background-color: #1F2739;
 }
 
+.content {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
 h1 {
     font-size: 3em; 
     line-height: 1.3em;
@@ -21,11 +26,11 @@ img {
 }
 
 table {
+    margin: 0 auto;
     font-size: 18px;
-    vertical-align: middle;
     border-collapse: collapse;
     height: 100%;
-    min-width: 100%;
+    overflow-x: auto;
 }
 
 th {
@@ -36,7 +41,8 @@ th {
 td, th {
     border: 1px solid #dddddd;
     text-align: center;
-    padding: 1%;
+    white-space: nowrap;
+    padding: 7px;
 }
 
 tr:nth-child(odd) {
@@ -47,15 +53,16 @@ tr:nth-child(even) {
     background-color: #2C3446;
 }
 
-td:first-child { color: #FB667A; }
-
-tr:hover {
-   background-color: #464A52;
+td:first-child { 
+    color: #FB667A;
 }
 
-.content {
-    margin: 0 auto;
-    max-width: 1200px;
+tr:hover {
+   background-color: #464452;
+}
+
+.no-line-break {
+    white-space: nowrap;
 }
 
 .margin-top-40 {
@@ -71,6 +78,7 @@ tr:hover {
 }
 
 .updated {
+    text-align: center;
     padding: 10px;
     padding-bottom: 30px;
     font-style: italic;
@@ -111,4 +119,14 @@ tr:hover {
 @media (max-width: 800px) {
     table td:nth-child(4),
     table th:nth-child(4) { display: none; }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    table {
+        font-size: 16px;
+    }
 }
