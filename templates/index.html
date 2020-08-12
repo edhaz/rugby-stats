@@ -2,7 +2,7 @@
 {% block title %}Rugby Table{% endblock %}
 {% block body %}
 <div class="content">
-    <h1 class="title">Gallagher Premiership Rugby Table {{ year }}-{{ next_year_short }}</h1>
+    <h1 class="title">Gallagher Premiership Rugby Table <span class="no-line-break">{{ year }}-{{ next_year_short }}</span></h1>
     <table>
         <tr>
             {% for table_header in table_data[0] %}
@@ -24,10 +24,12 @@
             {% for col in row %}
             {% if loop.index == 2 %}
             <td class="team">
-                <img width=20
-                     src="https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/{{ logos[row[1].lower()] }}"
-                     alt="{{ row[1] }} logo" />
-                {{ col }}
+                <div>
+                    <img width=25
+                        src="https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/{{ logos[row[1].lower()] }}"
+                        alt="{{ row[1] }} logo" />
+                    {{ col }}
+                </div>
             </td>
             {% else %}
             <td>
@@ -40,11 +42,9 @@
     </table>
 
     <div>
-        <p class="updated">Updated: {{ updated }}</p>
+        <p class="updated">Last updated: {{ updated }}</p>
     </div>
-
     {% if year != CURRENT_YEAR %}
-    <h3>Graphs</h3>
     <div>
         <img src="/static/graphs/points.png" />
     </div>

@@ -7,7 +7,7 @@ body {
 
 .content {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1000px;
 }
 
 h1 {
@@ -26,7 +26,7 @@ img {
 }
 
 table {
-    display: block;
+    margin: 0 auto;
     font-size: 18px;
     border-collapse: collapse;
     height: 100%;
@@ -41,8 +41,6 @@ th {
 td, th {
     border: 1px solid #dddddd;
     text-align: center;
-    min-width: fit-content;
-    width: fit-content;
     white-space: nowrap;
     padding: 7px;
 }
@@ -60,7 +58,11 @@ td:first-child {
 }
 
 tr:hover {
-   background-color: #464A52;
+   background-color: #464452;
+}
+
+.no-line-break {
+    white-space: nowrap;
 }
 
 .margin-top-40 {
@@ -76,6 +78,7 @@ tr:hover {
 }
 
 .updated {
+    text-align: center;
     padding: 10px;
     padding-bottom: 30px;
     font-style: italic;
@@ -118,13 +121,12 @@ tr:hover {
     table th:nth-child(4) { display: none; }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 400px) {
     h1 {
         font-size: 30px;
     }
 
     table {
         font-size: 16px;
-        min-width: 100vw;
     }
 }
