@@ -1,5 +1,4 @@
-const extraColumns = [3, 4, 5, 6, 7, 8, 9, 10]
-hideColumns()
+const extraColumns = [4, 5, 6, 7, 8, 9, 10, 11]
 toggleVisibility('reduce')
 
 function handleColumns() {
@@ -25,16 +24,24 @@ function showColumns() {
 }
 
 function hideColumn(column) {
-    document.querySelector(`th:nth-child(${column})`).style.display = "none"
+    document.querySelector(`th:nth-child(${column})`).style.maxWidth = 0;
+    document.querySelector(`th:nth-child(${column})`).style.padding = 0;
+    document.querySelector(`th:nth-child(${column})`).style.borderWidth = 0;
     document.querySelectorAll(`td:nth-child(${column})`).forEach(function (col) {
-        col.style.display = "none"
+        col.style.maxWidth = 0;
+        col.style.padding = 0;
+        col.style.borderWidth = 0;
     });
 }
 
 function showColumn(column) {
-    document.querySelector(`th:nth-child(${column})`).style.display = "table-cell"
+    document.querySelector(`th:nth-child(${column})`).style.maxWidth = "100px";
+    document.querySelector(`th:nth-child(${column})`).style.padding = "7px";
+    document.querySelector(`th:nth-child(${column})`).style.borderWidth = "1px";
     document.querySelectorAll(`td:nth-child(${column})`).forEach(function (col) {
-        col.style.display = "table-cell"
+        col.style.maxWidth = "100px";
+        col.style.padding = "7px";
+        col.style.borderWidth = "1px";
     });
 }
 

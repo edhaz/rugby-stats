@@ -9,3 +9,5 @@ __pycache__
 data/rugby_table_*
 config.py
 config.pyc
+*.egg-info
+rugby/data/rugby.db
