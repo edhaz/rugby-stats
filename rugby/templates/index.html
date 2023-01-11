@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Rugby Table{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 class="title">Gallagher Premiership Rugby Table: <span class="no-line-break">20{{year}}</span></h1>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                {% for header in table_headers %}
+                <th class="{% if header not in ['Place', '', 'Team', 'Points'] %}initial-hidden{% endif %}">
+                    {{ header }}
+                </th>
+                {% endfor %}
+                <th class="expand-reduce-container" onclick="handleColumns()" rowspan={{ table_data|length + 1 }}>
+                    <a id="expand">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                    <a id="reduce">
+                        <i class="fas fa-minus-circle"></i>
+                    </a>
+                </th>
+            </tr>
+            {% for team in table_data %}
+            <tr>
+                <td>
+                    {{ team['place'] }}
+                </td>
+                <td class="team-image">
+                    <img class="team-image-sm"
+                        src="https://cdn.soticservers.net/tools/images/teams/logos/RUGBY969513/d/{{ logos[team['name'].lower()] }}"
+                        alt="{{ team['name'] }} logo" />
+                </td>
+                <td class="team-name">
+                    {{ team['name'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['games_played'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['games_won'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['games_lost'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['games_drawn'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['points_for'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['points_against'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['points_difference'] }}
+                </td>
+                <td class="initial-hidden">
+                    {{ team['points_bonus'] }}
+                </td>
+                <td>
+                    {{ team['points_total'] }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <p class="updated">Last updated: {{ updated.strftime('%d %B, %Y') }}</p>
+    </div>
+    <!-- <div>
+        <img src="/static/graphs/points.png" />
+    </div>
+    <hr>
+    <div>
+        <img src="/static/graphs/places.png" />
+    </div> -->
+</div>
+{% endblock %}
+
+{% block customScripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='table.js') }}"> </script>
+{% endblock %}
+
+</html>

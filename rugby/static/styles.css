@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-    font-size: 3em; 
+    font-size: 2.5em; 
     line-height: 1.3em;
     text-align: center;
     color: #4DC3FA;
@@ -25,12 +25,14 @@ img {
     max-width: 100%;
 }
 
+.table-wrapper {
+    overflow: auto;
+}
+
 table {
     margin: 0 auto;
     font-size: 18px;
     border-collapse: collapse;
-    height: 100%;
-    overflow-x: auto;
 }
 
 th {
@@ -39,10 +41,17 @@ th {
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    cursor: default;
+    border: 1px solid #1F2739;
     text-align: center;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     padding: 7px;
+    overflow: hidden;
+    transition:
+        max-width 1s ease,
+        width 1s ease,
+        padding 1s ease,
+        border-width 1s ease;
 }
 
 tr:nth-child(odd) {
@@ -61,6 +70,13 @@ tr:hover {
    background-color: #464452;
 }
 
+.initial-hidden {
+    max-width: 0;
+    width: 0;
+    border-width: 0;
+    padding: 0;
+}
+
 .no-line-break {
     white-space: nowrap;
 }
@@ -73,8 +89,20 @@ tr:hover {
     text-align: center;
 }
 
-.team {
+.team-name {
     text-align: left;
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+.team-image {
+    background-color: #eee;
+    padding: 5px;
+}
+
+.team-image-sm {
+    width: 30px;
+    min-width: 30px;
 }
 
 .updated {
@@ -101,20 +129,6 @@ tr:hover {
     background-color: #eee;
     cursor: pointer;
 }
-
-/* table td:hover {
-  background-color: #FFF842;
-  color: #403E10;
-  font-weight: bold;
-  
-  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-  transform: translate3d(6px, -6px, 0);
-  
-  transition-delay: 0s;
-	  transition-duration: 0.4s;
-	  transition-property: all;
-  transition-timing-function: line;
-} */
 
 @media (max-width: 800px) {
     table td:nth-child(4),
