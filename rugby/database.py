@@ -1,5 +1,6 @@
 import csv
 from os import path
+
 from sqlalchemy.exc import IntegrityError
 
 from rugby import db, settings
@@ -17,7 +18,7 @@ def add_team(data):
 
 
 def all_teams():
-    return db.session.query(Team).group_by(Team.name).order_by(Team.place).all()
+    return db.session.query(Team).group_by(Team.name).order_by(Team.place, Team.created).limit(11)
 
 
 # For historical data
